@@ -23,4 +23,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/employees', [AdminController::class, 'employees'])->name('employees');
 });

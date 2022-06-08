@@ -12,4 +12,9 @@ class AdminController extends Controller
         $title = 'Dashboard';
         return view('admin.pages.dashboard',compact('title'));
     }
+    public function employees()
+    {
+        $title = 'Employee';
+        return view('admin.pages.employee.list',compact('title'));
+    }
 }

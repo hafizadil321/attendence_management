@@ -3,6 +3,7 @@
 <head>
    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin/layout.includes.head')
+    @yield('css')
 </head>
 <body>
     <!-- BEGIN LOADER -->
