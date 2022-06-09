@@ -6,6 +6,8 @@
     <!--  BEGIN CUSTOM STYLE FILE  -->
     <link href="{{ asset('assets/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/assets/css/scrollspyNav.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/animate/animate.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/assets/css/components/custom-sweetalert.css')}}" rel="stylesheet" type="text/css" />
     
     <!--  END CUSTOM STYLE FILE  -->
 @endsection
@@ -20,7 +22,7 @@
                 <div class="dt--top-section">
                     <div class="row">
                         <!-- <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Large</button> -->
-                        <button type="button" class="btn btn-primary btn-sm ml-4 mb-2 mr-2" data-toggle="modal" data-target=".bd-example-modal-lg"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                        <button type="button" class="btn btn-primary btn-sm ml-4 mb-2 mr-2" data-toggle="modal" data-target="#registerModal"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
                             <span>Add</span></button>
                     </div>
                 </div>
@@ -28,239 +30,31 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
+                            <th>Member Since</th>
                             <th>Salary</th>
                             <th class="dt-no-sorting text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($employees as $emp)
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
+                            <td>{{ $emp->name }}</td>
+                            <td>{{ $emp->email }}</td>
+                            <td>{{ $emp->position }}</td>
+                            <td>{{ $emp->created_at }}</td>
                             <td>$320,800</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
+                            <td class="text-center"><button class="btn btn-info btn-sm" id="{{ $emp->id }}">Edit</button><button class="btn btn-danger btn-sm" id="{{ $emp->id }}">Delete</button></td>
                         </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
-                            <td>2009/01/12</td>
-                            <td>$86,000</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                            <td>22</td>
-                            <td>2012/03/29</td>
-                            <td>$433,060</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>33</td>
-                            <td>2008/11/28</td>
-                            <td>$162,700</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Brielle Williamson</td>
-                            <td>Integration Specialist</td>
-                            <td>New York</td>
-                            <td>61</td>
-                            <td>2012/12/02</td>
-                            <td>$372,000</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Herrod Chandler</td>
-                            <td>Sales Assistant</td>
-                            <td>San Francisco</td>
-                            <td>59</td>
-                            <td>2012/08/06</td>
-                            <td>$137,500</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Rhona Davidson</td>
-                            <td>Integration Specialist</td>
-                            <td>Tokyo</td>
-                            <td>55</td>
-                            <td>2010/10/14</td>
-                            <td>$327,900</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Colleen Hurst</td>
-                            <td>Javascript Developer</td>
-                            <td>San Francisco</td>
-                            <td>39</td>
-                            <td>2009/09/15</td>
-                            <td>$205,500</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Sonya Frost</td>
-                            <td>Software Engineer</td>
-                            <td>Edinburgh</td>
-                            <td>23</td>
-                            <td>2008/12/13</td>
-                            <td>$103,600</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Jena Gaines</td>
-                            <td>Office Manager</td>
-                            <td>London</td>
-                            <td>30</td>
-                            <td>2008/12/19</td>
-                            <td>$90,560</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Quinn Flynn</td>
-                            <td>Support Lead</td>
-                            <td>Edinburgh</td>
-                            <td>22</td>
-                            <td>2013/03/03</td>
-                            <td>$342,000</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Charde Marshall</td>
-                            <td>Regional Director</td>
-                            <td>San Francisco</td>
-                            <td>36</td>
-                            <td>2008/10/16</td>
-                            <td>$470,600</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Haley Kennedy</td>
-                            <td>Senior Marketing Designer</td>
-                            <td>London</td>
-                            <td>43</td>
-                            <td>2012/12/18</td>
-                            <td>$313,500</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Tatyana Fitzpatrick</td>
-                            <td>Regional Director</td>
-                            <td>London</td>
-                            <td>19</td>
-                            <td>2010/03/17</td>
-                            <td>$385,750</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Michael Silva</td>
-                            <td>Marketing Designer</td>
-                            <td>London</td>
-                            <td>66</td>
-                            <td>2012/11/27</td>
-                            <td>$198,500</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Paul Byrd</td>
-                            <td>Chief Financial Officer (CFO)</td>
-                            <td>New York</td>
-                            <td>64</td>
-                            <td>2010/06/09</td>
-                            <td>$725,000</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Gloria Little</td>
-                            <td>Systems Administrator</td>
-                            <td>New York</td>
-                            <td>59</td>
-                            <td>2009/04/10</td>
-                            <td>$237,500</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Bradley Greer</td>
-                            <td>Software Engineer</td>
-                            <td>London</td>
-                            <td>41</td>
-                            <td>2012/10/13</td>
-                            <td>$132,000</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Dai Rios</td>
-                            <td>Personnel Lead</td>
-                            <td>Edinburgh</td>
-                            <td>35</td>
-                            <td>2012/09/26</td>
-                            <td>$217,500</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Jenette Caldwell</td>
-                            <td>Development Lead</td>
-                            <td>New York</td>
-                            <td>30</td>
-                            <td>2011/09/03</td>
-                            <td>$345,000</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Yuri Berry</td>
-                            <td>Chief Marketing Officer (CMO)</td>
-                            <td>New York</td>
-                            <td>40</td>
-                            <td>2009/06/25</td>
-                            <td>$675,000</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Caesar Vance</td>
-                            <td>Pre-Sales Support</td>
-                            <td>New York</td>
-                            <td>21</td>
-                            <td>2011/12/12</td>
-                            <td>$106,450</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Doris Wilder</td>
-                            <td>Sales Assistant</td>
-                            <td>Sidney</td>
-                            <td>23</td>
-                            <td>2010/09/20</td>
-                            <td>$85,600</td>
-                            <td class="text-center"><button class="btn btn-primary btn-sm">View</button> </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
+                            <th>Member Since</th>
                             <th>Salary</th>
                             <th class="invisible"></th>
                         </tr>
@@ -273,31 +67,63 @@
 
 </div>
 <!--end page-wrapper-->
-<!-- Modal -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade show" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myLargeModalLabel">Large</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
+
+          <div class="modal-header" id="registerModalLabel">
+            <h4 class="modal-title">Add New Employee</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+          </div>
+          <div class="modal-body">
+            <div id="error_msg" class="text-center text-danger mb-2"></div>
+            <form class="mt-0">
+                <input type="hidden" class="" id="edit_form">
+               <div class="form-group">
+                <label>Employee Name</label>
+                <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control mb-2" id="email" placeholder="Enter Email">
+              </div>
+              <div class="form-group">
+                <label>Position</label>
+                <input type="text" class="form-control mb-2" id="position" placeholder="Enter Employee Position">
+              </div>
+              <!-- <div class="form-group">
+                <input type="password" class="form-control mb-4" id="exampleInputPassword2" placeholder="Password">
+              </div> -->
+              <button type="submit" class="btn btn-primary mt-2 mb-2 btn-block add_new_employee">Add New Employee</button>
+            </form>
+
+            <!-- <div class="division">
+                  <span>OR</span>
             </div>
-            <div class="modal-body">
-                <p class="modal-text">Mauris mi tellus, pharetra vel mattis sed, tempus ultrices eros. Phasellus egestas sit amet velit sed luctus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Vivamus ultrices sed urna ac pulvinar. Ut sit amet ullamcorper mi.</p>
+
+            <div class="social">
+                <a href="javascript:void(0);" class="btn social-fb"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg> <span class="brand-name">Facebook</span></a>
+                <a href="javascript:void(0);" class="btn social-github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <span class="brand-name">Github</span></a>
+            </div> -->
+
+          </div>
+          <div class="modal-footer justify-content-center">
+            <div class="forgot login-footer">
+               <!--  <span>Already have <a href="javascript:void(0);">Login</a>?</span> -->
             </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
-                <button type="button" class="btn btn-primary">Save</button>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 @endsection
 @section('js')
 <script src="{{ asset('assets/plugins/table/datatable/datatables.js')}}"></script>
 <script src="{{ asset('assets/plugins/highlight/highlight.pack.js')}}"></script>
 <script src="{{ asset('assets/assets/js/scrollspyNav.js')}}"></script>
+<script src="{{ asset('assets/plugins/blockui/jquery.blockUI.min.js')}}"></script>
+<script src="{{ asset('assets/plugins/blockui/custom-blockui.js')}}"></script>
+<script src="{{ asset('assets/plugins/sweetalerts/sweetalert2.min.js')}}"></script>
+    <script src="{{ asset('assets/plugins/sweetalerts/custom-sweetalert.js')}}"></script>
 <script>        
     $('#default-ordering').DataTable( {
         "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
@@ -316,6 +142,193 @@
         "pageLength": 7,
         drawCallback: function () { $('.dataTables_paginate > .pagination').addClass(' pagination-style-13 pagination-bordered'); }
     } );
+
+    $('.add_new_employee').on('click', function(){
+
+    })
+$(document).ready(function(){
+    $('.add_new_employee').click(function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.blockUI({
+            message: '<svg> ... </svg>',
+            fadeIn: 800, 
+            timeout: 2000, //unblock after 2 seconds
+            overlayCSS: {
+                backgroundColor: '#1b2024',
+                opacity: 0.8,
+                zIndex: 1200,
+                cursor: 'wait'
+            },
+            css: {
+                border: 0,
+                color: '#fff',
+                zIndex: 1201,
+                padding: 0,
+                backgroundColor: 'transparent'
+            }
+        });
+
+        if ($('#edit_form').val() == '') {
+            jQuery.ajax({
+                url: "{{ url('/add_employee') }}",
+                method: 'post',
+                data: {
+                    name: jQuery('#name').val(),
+                    position: jQuery('#position').val(),
+                    email: jQuery('#email').val(),
+                },
+                success: function(result){
+                    $.unblockUI();
+                    if (result.success == false) {
+                        $('#error_msg').html(result.errors);
+                    }else{
+                        $('#registerModal').modal('hide');
+                        const toast = swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            padding: '2em'
+                        });
+
+                        toast({
+                            type: 'success',
+                            title: 'Employee Added Successfully',
+                            padding: '2em',
+                        })
+                        
+                        location.reload(true);
+                    }
+                }
+            });
+        }else{
+            jQuery.ajax({
+                url: "{{ url('/update_employee') }}",
+                method: 'post',
+                data: {
+                    id: jQuery('#edit_form').val(),
+                    name: jQuery('#name').val(),
+                    position: jQuery('#position').val(),
+                    email: jQuery('#email').val(),
+                },
+                success: function(result){
+                    $.unblockUI();
+                    if (result.success == false) {
+                        $('#error_msg').html(result.errors);
+                    }else{
+                        $('#registerModal').modal('hide');
+                        const toast = swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            padding: '2em'
+                        });
+
+                        toast({
+                            type: 'success',
+                            title: 'Employee Updated Successfully',
+                            padding: '2em',
+                        })
+                        
+                        location.reload(true);
+                    }
+                }
+            });
+        }
+        
+    });
+    $('.btn-info').click(function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.blockUI({
+            message: '<svg> ... </svg>',
+            fadeIn: 800, 
+            timeout: 2000, //unblock after 2 seconds
+            overlayCSS: {
+                backgroundColor: '#1b2024',
+                opacity: 0.8,
+                zIndex: 1200,
+                cursor: 'wait'
+            },
+            css: {
+                border: 0,
+                color: '#fff',
+                zIndex: 1201,
+                padding: 0,
+                backgroundColor: 'transparent'
+            }
+        });
+        jQuery.ajax({
+            url: "{{ url('/get_employee') }}",
+            method: 'post',
+            data: {
+                id: this.id,
+            },
+            success: function(result){
+                $.unblockUI();
+                if (result.success == false) {
+                    $('#error_msg').html(result.errors);
+                }else{
+                    $('#registerModal').modal('show');
+                    $('#edit_form').val(result.data.id);
+                    $('.add_new_employee').text('Update Employee');
+                    $('#name').val(result.data.name);
+                    $('#position').val(result.data.position);
+                    $('#email').val(result.data.email);
+                }
+            }
+        });
+
+    });
+    $('.btn-danger').click(function(e){
+        id = this.id;
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            padding: '2em'
+        }).then(function(result) {
+            if (result.value) {
+                jQuery.ajax({
+                    url: "{{ url('/delete_employee') }}",
+                    method: 'post',
+                    data: {
+                        id: id,
+                    },
+                    success: function(result){
+                        $.unblockUI();
+                        if (result.success == false) {
+                            $('#error_msg').html(result.errors);
+                        }else{
+                            location.reload(true);
+                        }
+                    }
+                });
+            }
+        })
+        
+
+    });
+});
+
 </script>
 <!-- END PAGE LEVEL SCRIPTS -->
 @endsection

@@ -13,9 +13,8 @@
 <!-- END GLOBAL MANDATORY STYLES -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-@if($title == 'dashboard')
 <link href="{{asset('assets/plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('assets/assets/css/dashboard/dash_2.css')}}" rel="stylesheet" type="text/css" />
-@endif
+
 <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-    Route::get('/employees', [AdminController::class, 'employees'])->name('employees');
+    Route::get('/employees', [EmployeeController::class, 'employees'])->name('employees');
+    Route::post('/add_employee', [EmployeeController::class, 'add_employee'])->name('add_employee');
+    Route::post('/get_employee', [EmployeeController::class, 'get_employee'])->name('get_employee');
+    Route::post('/update_employee', [EmployeeController::class, 'update_employee'])->name('update_employee');
+    Route::post('/delete_employee', [EmployeeController::class, 'delete_employee'])->name('delete_employee');
 });
