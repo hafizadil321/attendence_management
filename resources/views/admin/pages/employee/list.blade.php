@@ -300,7 +300,7 @@ $(document).ready(function(){
         });
         swal({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "You want to this record!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Delete',
