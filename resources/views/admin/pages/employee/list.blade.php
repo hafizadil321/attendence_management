@@ -8,7 +8,10 @@
     <link href="{{ asset('assets/assets/css/scrollspyNav.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/animate/animate.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/assets/css/components/custom-sweetalert.css')}}" rel="stylesheet" type="text/css" />
-    
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/table/datatable/datatables.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/table/datatable/dt-global_style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/assets/css/forms/theme-checkbox-radio.css')}}">
+<link href="{{ asset('assets/assets/css/apps/invoice-list.css')}}" rel="stylesheet" type="text/css" />
     <!--  END CUSTOM STYLE FILE  -->
 @endsection
 @extends('admin.layout.main_layout')

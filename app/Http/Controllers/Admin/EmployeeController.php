@@ -14,7 +14,7 @@ class EmployeeController extends Controller
     {
         $title = 'Employee';
         $employees = Employee::all();
-        return view('admin.pages.employee.list',compact('title','employees'));
+        return view('admin.pages.employee.test',compact('title','employees'));
     }
 
     public function add_employee(Request $request)
@@ -111,5 +111,10 @@ class EmployeeController extends Controller
             'data' => $employee,
         );
         return $data;
+    }
+    public function test()
+    {
+        $title = 'TEST';
+        return view('admin.pages.employee.test',compact('title'));
     }
 }

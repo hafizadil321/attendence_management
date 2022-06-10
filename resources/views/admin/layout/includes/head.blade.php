@@ -10,11 +10,10 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 <link href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('assets/assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-<link href="{{asset('assets/plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
-<link href="{{asset('assets/assets/css/dashboard/dash_2.css')}}" rel="stylesheet" type="text/css" />
+
 
 <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-

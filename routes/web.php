@@ -29,4 +29,5 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
     Route::post('/get_employee', [EmployeeController::class, 'get_employee'])->name('get_employee');
     Route::post('/update_employee', [EmployeeController::class, 'update_employee'])->name('update_employee');
     Route::post('/delete_employee', [EmployeeController::class, 'delete_employee'])->name('delete_employee');
+    Route::get('/test', [EmployeeController::class, 'test'])->name('test');
 });
