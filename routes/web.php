@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\EmployeeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'adminLoginForm']);
+Route::get('/', [HomeController::class, 'index']);
 
 Auth::routes();
 

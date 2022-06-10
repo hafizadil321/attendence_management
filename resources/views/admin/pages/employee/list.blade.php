@@ -185,6 +185,7 @@ $(document).ready(function(){
                     position: jQuery('#position').val(),
                     email: jQuery('#email').val(),
                 },
+                
                 success: function(result){
                     $.unblockUI();
                     if (result.success == false) {
@@ -205,7 +206,7 @@ $(document).ready(function(){
                             padding: '2em',
                         })
                         
-                        location.reload(true);
+                        // location.reload(true);
                     }
                 }
             });

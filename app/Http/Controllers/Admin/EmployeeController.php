@@ -37,7 +37,8 @@ class EmployeeController extends Controller
             'position' => $request->position,
             'email' => $request->email,
         ]);
-
+        $user->code = "00".$user->id;
+        $user->save();
         $data = array(
             'success' => true,
             'data' => $user,
