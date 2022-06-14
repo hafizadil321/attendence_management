@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from designreset.com/cork/ltr/demo4/pages_coming_soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Jun 2022 14:00:53 GMT -->
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Coming Soon | CORK - Multipurpose Bootstrap Dashboard Template </title>
@@ -16,6 +15,8 @@
     <!-- END GLOBAL MANDATORY STYLES -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/css/forms/theme-checkbox-radio.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/css/forms/switches.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/css/elements/alert.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/css/components/cards/card.css')}}">
 </head>
 <body class="coming-soon">    
 
@@ -25,15 +26,29 @@
                 <div class="coming-soon-container">
                     <div class="coming-soon-content">
 
-                        <h4 class="">Coming Soon</h4>
+                        <h4 class="">Attendance</h4>
                         <p class="">We will be here in a shortwhile.....</p>
-
-                        <div id="timer">
-                            <div class="days"><span class="count">--</span> <span class="text">Days</span></div>
-                            <div class="hours"><span class="count">--</span> <span class="text">Hours</span></div>
-                            <div class="min"><span class="count">--</span> <span class="text">Mins</span></div>
-                            <div class="sec"><span class="count">--</span> <span class="text">Secs</span></div>
+                        <div id="error_msg"></div>
+                        <div class="card component-card_4">
+                            <div class="card-body">
+                                <div class="user-profile">
+                                    <img height="50" width="50" src="{{ asset('assets/assets/img/user_image.png') }}" class="" alt="..." id="emp_image">
+                                </div>
+                                <div class="user-info">
+                                    <h5 class="card-user_name" id="emp_name">Luke Ivory</h5>
+                                    <p class="card-user_occupation" id="emp_position">Manager</p>  
+                                </div>
+                            </div>
                         </div>
+                        <!-- <div class="card component-card_1">
+                            <div class="card-body">
+                                <div class="icon-svg">
+                                    <img src="" id="emp_image">
+                                </div>
+                                <h5 class="card-title mt-4" id="emp_name"></h5>
+                                <p class="card-text" id="emp_position"> </p>
+                            </div>
+                        </div> -->
 
                         <h3>Enter your attendance code!</h3>
 
@@ -43,8 +58,8 @@
                                 <div class="">
                                     <div id="email-field" class="field-wrapper input">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
-                                        <input id="code" name="code" class="form-control" type="number" value="" placeholder="Enter Code">
-                                        <button type="submit" class="btn btn-primary" value="">Enter</button>
+                                        <input id="code" name="code" class="form-control" type="number" value="" placeholder="Enter Code" required="required">
+                                        <button class="btn btn-primary">Enter</button>
                                     </div>                                    
                                 </div>
 
@@ -79,7 +94,64 @@
     <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
     
     <!-- END GLOBAL MANDATORY SCRIPTS -->
-    <script src="{{ asset('assets/assets/js/pages/coming-soon/coming-soon.js')}}"></script>
+    <script src="{{ asset('assets/plugins/blockui/jquery.blockUI.min.js')}}"></script>
+    <script src="{{ asset('assets/plugins/blockui/custom-blockui.js')}}"></script>
+
+    <script src="{{ asset('assets/plugins/sweetalerts/sweetalert2.min.js')}}"></script>
+    <script src="{{ asset('assets/plugins/sweetalerts/custom-sweetalert.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.btn-primary').click(function(e){
+                e.preventDefault();
+                $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.blockUI({
+                    message: '<svg> ... </svg>',
+                    fadeIn: 800, 
+                    timeout: 2000, //unblock after 2 seconds
+                    overlayCSS: {
+                        backgroundColor: '#1b2024',
+                        opacity: 0.8,
+                        zIndex: 1200,
+                        cursor: 'wait'
+                    },
+                    css: {
+                        border: 0,
+                        color: '#fff',
+                        zIndex: 1201,
+                        padding: 0,
+                        backgroundColor: 'transparent'
+                    }
+                });
+                jQuery.ajax({
+                    url: "{{ url('/attendance') }}",
+                    method: 'post',
+                    data: {
+                        code: $('#code').val(),
+                    },
+                    success: function(result){
+                        $.unblockUI();
+                        $('#error_msg').html('');
+                        if (result.success == false) {
+                            $('#emp_image').attr("src","");
+                            $('#emp_name').html("");
+                            $('#emp_position').html("");
+                            $('#error_msg').append('<div class="alert alert-light-danger border-0 mb-4" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x close" data-dismiss="alert"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button> <strong>Error!</strong> '+ result.errors +' </div>');
+                        }else{
+                            $('#code').val();
+                            $('#emp_image').attr("src","http://127.0.0.1:8000/assets/assets/img/profile-7.jpg");
+                            $('#emp_name').html(result.data.name);
+                            $('#emp_position').html(result.data.position);
+                        }
+                    }
+                });
+
+            });
+        });
+    </script>
 
 </body>
 

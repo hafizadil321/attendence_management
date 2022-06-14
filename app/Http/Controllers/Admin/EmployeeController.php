@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Attendance;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
@@ -117,5 +119,58 @@ class EmployeeController extends Controller
     {
         $title = 'TEST';
         return view('admin.pages.employee.test',compact('title'));
+    }
+
+
+    public function attendance(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'code' => 'required',
+        ]);
+
+        if ($validator->fails()) { 
+            $data = array(
+                'success' => false,
+                'errors' => $validator->errors()->first()
+            );
+            return $data;
+        }
+        $employee = Employee::where('code', $request->code)->first();
+        if ($employee) {
+            $attendance = Attendance::where('emp_id', $employee->id)->whereDate('created_at', Carbon::today())->first();
+            if ($attendance) {
+                if($attendance->check_out == null) {
+                    $attendance->check_out = Carbon::now();
+                    $attendance->save();
+                    $data = array(
+                        'success' => true,
+                        'data' => $employee,
+                    );
+                    return $data;
+                }else{
+                    $data = array(
+                        'success' => false,
+                        'errors' => "Your have already marked attendance.",
+                    );
+                    return $data;
+                }
+            }else{
+                $attendance = Attendance::create([
+                    'emp_id' => $employee->id,
+                    'check_in' => Carbon::now(),
+                ]);
+                $data = array(
+                    'success' => true,
+                    'data' => $employee,
+                );
+                return $data;
+            }
+        }else{
+            $data = array(
+                'success' => false,
+                'errors' => "No Employee Found."
+            );
+            return $data;
+        }
     }
 }

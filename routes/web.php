@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\EmployeeController;
 |
 */
 
+
+date_default_timezone_set('America/New_York');
 Route::get('/', [HomeController::class, 'index']);
 
 Auth::routes();
@@ -30,4 +32,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
     Route::post('/update_employee', [EmployeeController::class, 'update_employee'])->name('update_employee');
     Route::post('/delete_employee', [EmployeeController::class, 'delete_employee'])->name('delete_employee');
     Route::get('/test', [EmployeeController::class, 'test'])->name('test');
+
+    Route::post('/attendance', [EmployeeController::class, 'attendance'])->name('attendance');
+
 });
