@@ -173,4 +173,11 @@ class EmployeeController extends Controller
             return $data;
         }
     }
+    public function employee_attendance($id)
+    {
+        $title = 'Employee';
+        $attendance = Attendance::with('employee')->where('emp_id', $id)->get();
+        // dd($attendance);
+        return view('admin.pages.employee.attendance',compact('title','attendance'));
+    }
 }

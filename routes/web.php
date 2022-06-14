@@ -21,6 +21,7 @@ date_default_timezone_set('America/New_York');
 Route::get('/', [HomeController::class, 'index']);
 
 Auth::routes();
+Route::post('/attendance', [EmployeeController::class, 'attendance'])->name('attendance');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
     Route::post('/delete_employee', [EmployeeController::class, 'delete_employee'])->name('delete_employee');
     Route::get('/test', [EmployeeController::class, 'test'])->name('test');
 
-    Route::post('/attendance', [EmployeeController::class, 'attendance'])->name('attendance');
+    // Employee Attendance
+    Route::get('/attendance/{id}', [EmployeeController::class, 'employee_attendance']);
 
 });
