@@ -27,12 +27,12 @@ class HomeController extends Controller
         return view('home');
     }
 
-    // public function adminLoginForm()
-    // {
-    //     if (Auth::check()) {
-    //         return redirect('/dashboard');
-    //     }
-    //     $title = 'Admin Login';
-    //     return view('auth.login', compact('title'));
-    // }
+    public function adminLoginForm()
+    {
+        if (Auth::check()) {
+            return redirect('/dashboard');
+        }
+        $title = 'Admin Login';
+        return view('auth.login', compact('title'));
+    }
 }

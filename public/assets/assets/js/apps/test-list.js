@@ -18,15 +18,10 @@ var invoiceList = $('#invoice-list').DataTable({
     buttons: [
         {
             text: 'Add New',
-            className: 'btn btn-primary btn-sm',
-            attr:  {
-                "data-toggle":"modal",
-                "data-target":"#registerModal",
+            className: 'btn btn-primary btn-sm',    
+            action: function(e, dt, node, config ) {
+                window.location = 'addUser';
             }
-            
-            // action: function(e, dt, node, config ) {
-            //     window.location = 'apps_invoice-add.html';
-            // }
         }
     ],
     "order": [[ 1, "asc" ]],

@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\User;
+use App\Models\Role;
 use App\Models\Attendance;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use File;
 
 class EmployeeController extends Controller
 {
@@ -17,35 +20,65 @@ class EmployeeController extends Controller
         $title = 'Employee';
         $employees = Employee::all();
         return view('admin.pages.employee.test',compact('title','employees'));
+        
     }
 
+    public function add_employee_view()
+    {
+        $title = 'Employee';
+        $roles = Role::all()->except(1);
+        // echo "<pre>"; print_r($roles); exit();
+        return view('admin.pages.employee.add',compact('title','roles'));
+    }
+    // public function add_employee(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'name' => 'required|min:2|max:255',
+    //         'email' => 'required|email|unique:employees',
+    //         'position' => 'required|min:2',
+    //     ]);
+
+    //     if ($validator->fails()) { 
+    //         $data = array(
+    //             'success' => false,
+    //             'errors' => $validator->errors()->first()
+    //         );
+    //         return $data;
+    //     }
+    //     $user = Employee::create([
+    //         'name' => $request->name,
+    //         'position' => $request->position,
+    //         'email' => $request->email,
+    //     ]);
+    //     $user->code = "00".$user->id;
+    //     $user->save();
+    //     $data = array(
+    //         'success' => true,
+    //         'data' => $user,
+    //     );
+    //     return $data;
+    // }
     public function add_employee(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:2|max:255',
-            'email' => 'required|email|unique:employees',
-            'position' => 'required|min:2',
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+            'password_confirm' => 'required|same:password'
+            'designation' => 'required|min:2',
+            'role' => 'required',
+            'file' => 'required',
         ]);
 
-        if ($validator->fails()) { 
-            $data = array(
-                'success' => false,
-                'errors' => $validator->errors()->first()
-            );
-            return $data;
-        }
-        $user = Employee::create([
+        $user = User::create([
             'name' => $request->name,
-            'position' => $request->position,
             'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'designation' => $request->designation,
         ]);
         $user->code = "00".$user->id;
         $user->save();
-        $data = array(
-            'success' => true,
-            'data' => $user,
-        );
-        return $data;
+        return redirect()->route('products.index')->with('success','User created successfully.');
     }
     public function get_employee(Request $request)
     {

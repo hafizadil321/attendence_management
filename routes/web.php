@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use App\Http\Controllers\Admin\EmployeeController;
 
 
 date_default_timezone_set('America/New_York');
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'adminLoginForm']);
 
 Auth::routes();
 Route::post('/attendance', [EmployeeController::class, 'attendance'])->name('attendance');
@@ -27,8 +28,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-    Route::get('/employees', [EmployeeController::class, 'employees'])->name('employees');
-    Route::post('/add_employee', [EmployeeController::class, 'add_employee'])->name('add_employee');
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::get('/addUser', [UserController::class, 'add_user_view']);
+    Route::post('/create_user', [UserController::class, 'create_user'])->name('create_user');
     Route::post('/get_employee', [EmployeeController::class, 'get_employee'])->name('get_employee');
     Route::post('/update_employee', [EmployeeController::class, 'update_employee'])->name('update_employee');
     Route::post('/delete_employee', [EmployeeController::class, 'delete_employee'])->name('delete_employee');
