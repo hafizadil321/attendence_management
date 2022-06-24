@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Role;
 use App\Models\Employee;
 use Carbon\Carbon;
+use File;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -76,7 +77,40 @@ class UserController extends Controller
     }
     public function update_user(Request $request)
     {
-        $data = $request->all();
-        echo "<pre>"; print_r($data); exit('poikk');
+        // $data = $request->all();
+        // echo "<pre>"; print_r($data); exit('poikk');
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'designation' => 'required|min:2',
+            'role' => 'required',
+            'phone' => 'required|numeric',
+            'address' => 'required',
+            'cnic' => 'required',
+            'bank_account' => 'required',
+            'joining_date' => 'required',
+            // 'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $employee = User::find($request->user_id);
+        if ($request->has('file')) {
+            $destinationPath = 'images/';
+            File::delete($destinationPath.'/'.$employee->image);
+            $imageName = time().'.'.$request->file->extension();  
+            $request->file->move(public_path('images'), $imageName);
+        }
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->designation = $request->designation;
+        $employee->phone = $request->phone;
+        $employee->address = $request->address;
+        $employee->cnic = $request->cnic;
+        $employee->bank_account = $request->bank_account;
+        $employee->joining_date = $request->joining_date;
+        if (isset($imageName)) {
+            $employee->image = $imageName;
+        }
+        $employee->joining_date = $request->joining_date;
+        $employee->save();
+        return redirect()->route('/admin/users')->with('success','User created successfully.');
     }
 }
