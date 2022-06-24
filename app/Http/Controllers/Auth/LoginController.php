@@ -20,19 +20,33 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    public function authenticated()
+    {
+        if(auth()->user()->hasRole('superadministrator'))
+        {
+            return redirect('/admin/dashboard');
+        }elseif (auth()->user()->hasRole('employee')) {
+            return redirect('/employee/dashboard');
+        }
+
+        return redirect('/user/dashboard');
+    }
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+    
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

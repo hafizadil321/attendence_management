@@ -29,9 +29,6 @@ class HomeController extends Controller
 
     public function adminLoginForm()
     {
-        if (Auth::check()) {
-            return redirect('/dashboard');
-        }
         $title = 'Admin Login';
         return view('auth.login', compact('title'));
     }

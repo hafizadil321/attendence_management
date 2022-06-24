@@ -61,9 +61,7 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                                        <a class="dropdown-item action-edit" id="{{ $user->id }}" href="apps_invoice-edit.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>Edit</a>
-                                        <a class="dropdown-item action-delete" id="{{ $user->id }}" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>Delete</a>
-                                        <a class="dropdown-item" id="{{ $user->id }}" href="{{ url('attendance/') }}/{{ $user->id }}"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 116.42 122.88" style="enable-background:new 0 0 116.42 122.88" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;} .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#3AAF3C;}</style><g><path class="st0" d="M5.95,112.26c-5.1-0.39-6.33-4.06-5.86-8.29c2.79-24.96,30.78-17.73,42.03-27.86l0,0 c5.61,16.5,29.05,17.11,34.31,0c1.21,1.09,2.89,2.01,4.87,2.82c-1.81,1.1-3.52,2.43-5.09,4c-7.93,7.92-9.88,19.57-5.86,29.33H5.95 L5.95,112.26z M41.97,59.56c2.13,3.37,4.36,6.83,7.12,9.37c2.66,2.43,5.9,4.09,10.16,4.1c4.64,0.01,8.01-1.7,10.76-4.28 c2.86-2.67,5.11-6.34,7.34-10l5.98-9.84c1.11-2.55,1.52-4.25,1.26-5.25c-0.16-0.59-0.81-0.88-1.92-0.93 c-0.23-0.01-0.48-0.01-0.72-0.01c-0.26,0.01-0.54,0.03-0.84,0.05c-0.17,0.01-0.31,0-0.46-0.03c-0.52,0.03-1.08-0.01-1.63-0.09 l2.04-9.06c-15.19,2.39-26.55-8.88-42.59-2.25l1.16,10.67c-0.63,0.04-1.25,0.01-1.82-0.07C28.6,42.24,40.16,56.67,41.97,59.56 L41.97,59.56L41.97,59.56L41.97,59.56z M84.74,40.01c1.47,0.45,2.41,1.38,2.8,2.89c0.43,1.67-0.04,4.03-1.46,7.25l0,0 c-0.03,0.06-0.05,0.12-0.09,0.17l-6.04,9.95c-2.33,3.84-4.69,7.69-7.85,10.63c-3.26,3.06-7.3,5.1-12.81,5.08 c-5.14-0.01-9.02-1.97-12.2-4.89c-3.84-3.52-21.52-25.66-13.62-30.99c0.39-0.25,0.82-0.48,1.28-0.65 c-0.35-4.58-0.47-10.34-0.25-15.17c0.12-1.14,0.34-2.28,0.65-3.43c1.35-4.85,4.76-8.75,8.96-11.43c2.32-1.48,4.87-2.59,7.51-3.33 c1.68-0.48-1.43-5.87,0.3-6.03c8.41-0.87,22.05,6.82,27.93,13.19c2.93,3.18,4.8,7.41,5.2,13L84.74,40.01L84.74,40.01L84.74,40.01 L84.74,40.01L84.74,40.01L84.74,40.01z"/><path class="st1" d="M95.32,80.66c11.66,0,21.11,9.45,21.11,21.11c0,11.66-9.45,21.11-21.11,21.11c-11.66,0-21.11-9.45-21.11-21.11 C74.21,90.11,83.66,80.66,95.32,80.66L95.32,80.66L95.32,80.66L95.32,80.66z M87.77,100.17c1.58,0.91,2.61,1.67,3.83,3.02 c3.17-5.11,6.62-7.94,11.1-11.97l0.44-0.17h4.91c-6.58,7.3-11.68,13.33-16.24,22.13c-2.38-5.08-4.5-8.59-9.23-11.84L87.77,100.17 L87.77,100.17L87.77,100.17z"/></g></svg>Attendance</a>
+                                        <a class="dropdown-item action-edit" id="{{ $user->id }}" href="{{ url('admin/editUser/') }}/{{ $user->id }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>Edit</a>
                                     </div>
                                 </div>
                             </td>
@@ -76,54 +74,6 @@
 
     </div>
 </div>
-<div class="modal fade show" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-          <div class="modal-header" id="registerModalLabel">
-            <h4 class="modal-title">Add New Employee</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-          </div>
-          <div class="modal-body">
-            <div id="error_msg" class="text-center text-danger mb-2"></div>
-            <form class="mt-0">
-                <input type="hidden" class="" id="edit_form">
-               <div class="form-group">
-                <label>Employee Name</label>
-                <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Enter Name">
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control mb-2" id="email" placeholder="Enter Email">
-              </div>
-              <div class="form-group">
-                <label>Position</label>
-                <input type="text" class="form-control mb-2" id="position" placeholder="Enter Employee Position">
-              </div>
-              <!-- <div class="form-group">
-                <input type="password" class="form-control mb-4" id="exampleInputPassword2" placeholder="Password">
-              </div> -->
-              <button type="submit" class="btn btn-primary mt-2 mb-2 btn-block add_new_employee">Add New Employee</button>
-            </form>
-
-            <!-- <div class="division">
-                  <span>OR</span>
-            </div>
-
-            <div class="social">
-                <a href="javascript:void(0);" class="btn social-fb"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg> <span class="brand-name">Facebook</span></a>
-                <a href="javascript:void(0);" class="btn social-github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <span class="brand-name">Github</span></a>
-            </div> -->
-
-          </div>
-          <div class="modal-footer justify-content-center">
-            <div class="forgot login-footer">
-               <!--  <span>Already have <a href="javascript:void(0);">Login</a>?</span> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 @endsection
 @section('js')
     <script type src="{{asset('assets/plugins/table/datatable/datatables.js')}}"></script>
@@ -136,187 +86,187 @@
 <script src="{{ asset('assets/plugins/sweetalerts/sweetalert2.min.js')}}"></script>
     <script src="{{ asset('assets/plugins/sweetalerts/custom-sweetalert.js')}}"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('.add_new_employee').click(function(e){
-                e.preventDefault();
-                $.ajaxSetup({
-                    headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.blockUI({
-                    message: '<svg> ... </svg>',
-                    fadeIn: 800, 
-                    timeout: 2000, //unblock after 2 seconds
-                    overlayCSS: {
-                        backgroundColor: '#1b2024',
-                        opacity: 0.8,
-                        zIndex: 1200,
-                        cursor: 'wait'
-                    },
-                    css: {
-                        border: 0,
-                        color: '#fff',
-                        zIndex: 1201,
-                        padding: 0,
-                        backgroundColor: 'transparent'
-                    }
-                });
+        // $(document).ready(function(){
+        //     $('.add_new_employee').click(function(e){
+        //         e.preventDefault();
+        //         $.ajaxSetup({
+        //             headers: {
+        //               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //             }
+        //         });
+        //         $.blockUI({
+        //             message: '<svg> ... </svg>',
+        //             fadeIn: 800, 
+        //             timeout: 2000, //unblock after 2 seconds
+        //             overlayCSS: {
+        //                 backgroundColor: '#1b2024',
+        //                 opacity: 0.8,
+        //                 zIndex: 1200,
+        //                 cursor: 'wait'
+        //             },
+        //             css: {
+        //                 border: 0,
+        //                 color: '#fff',
+        //                 zIndex: 1201,
+        //                 padding: 0,
+        //                 backgroundColor: 'transparent'
+        //             }
+        //         });
 
-                if ($('#edit_form').val() == '') {
-                    jQuery.ajax({
-                        url: "{{ url('/add_employee') }}",
-                        method: 'post',
-                        data: {
-                            name: jQuery('#name').val(),
-                            position: jQuery('#position').val(),
-                            email: jQuery('#email').val(),
-                        },
-                        success: function(result){
-                            $.unblockUI();
-                            if (result.success == false) {
-                                $('#error_msg').html(result.errors);
-                            }else{
-                                $('#registerModal').modal('hide');
-                                const toast = swal.mixin({
-                                    toast: true,
-                                    position: 'top-end',
-                                    showConfirmButton: false,
-                                    timer: 3000,
-                                    padding: '2em'
-                                });
+        //         if ($('#edit_form').val() == '') {
+        //             jQuery.ajax({
+        //                 url: "{{ url('/add_employee') }}",
+        //                 method: 'post',
+        //                 data: {
+        //                     name: jQuery('#name').val(),
+        //                     position: jQuery('#position').val(),
+        //                     email: jQuery('#email').val(),
+        //                 },
+        //                 success: function(result){
+        //                     $.unblockUI();
+        //                     if (result.success == false) {
+        //                         $('#error_msg').html(result.errors);
+        //                     }else{
+        //                         $('#registerModal').modal('hide');
+        //                         const toast = swal.mixin({
+        //                             toast: true,
+        //                             position: 'top-end',
+        //                             showConfirmButton: false,
+        //                             timer: 3000,
+        //                             padding: '2em'
+        //                         });
 
-                                toast({
-                                    type: 'success',
-                                    title: 'Employee Added Successfully',
-                                    padding: '2em',
-                                })
+        //                         toast({
+        //                             type: 'success',
+        //                             title: 'Employee Added Successfully',
+        //                             padding: '2em',
+        //                         })
                                 
-                                location.reload(true);
-                            }
-                        }
-                    });
-                }else{
-                    jQuery.ajax({
-                        url: "{{ url('/update_employee') }}",
-                        method: 'post',
-                        data: {
-                            id: jQuery('#edit_form').val(),
-                            name: jQuery('#name').val(),
-                            position: jQuery('#position').val(),
-                            email: jQuery('#email').val(),
-                        },
-                        success: function(result){
-                            $.unblockUI();
-                            if (result.success == false) {
-                                $('#error_msg').html(result.errors);
-                            }else{
-                                $('#registerModal').modal('hide');
-                                const toast = swal.mixin({
-                                    toast: true,
-                                    position: 'top-end',
-                                    showConfirmButton: false,
-                                    timer: 3000,
-                                    padding: '2em'
-                                });
+        //                         location.reload(true);
+        //                     }
+        //                 }
+        //             });
+        //         }else{
+        //             jQuery.ajax({
+        //                 url: "{{ url('/update_employee') }}",
+        //                 method: 'post',
+        //                 data: {
+        //                     id: jQuery('#edit_form').val(),
+        //                     name: jQuery('#name').val(),
+        //                     position: jQuery('#position').val(),
+        //                     email: jQuery('#email').val(),
+        //                 },
+        //                 success: function(result){
+        //                     $.unblockUI();
+        //                     if (result.success == false) {
+        //                         $('#error_msg').html(result.errors);
+        //                     }else{
+        //                         $('#registerModal').modal('hide');
+        //                         const toast = swal.mixin({
+        //                             toast: true,
+        //                             position: 'top-end',
+        //                             showConfirmButton: false,
+        //                             timer: 3000,
+        //                             padding: '2em'
+        //                         });
 
-                                toast({
-                                    type: 'success',
-                                    title: 'Employee Updated Successfully',
-                                    padding: '2em',
-                                })
+        //                         toast({
+        //                             type: 'success',
+        //                             title: 'Employee Updated Successfully',
+        //                             padding: '2em',
+        //                         })
                                 
-                                location.reload(true);
-                            }
-                        }
-                    });
-                }
+        //                         location.reload(true);
+        //                     }
+        //                 }
+        //             });
+        //         }
                 
-            });
-            $('.action-edit').click(function(e){
-                e.preventDefault();
-                $.ajaxSetup({
-                    headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.blockUI({
-                    message: '<svg> ... </svg>',
-                    fadeIn: 800, 
-                    timeout: 2000, //unblock after 2 seconds
-                    overlayCSS: {
-                        backgroundColor: '#1b2024',
-                        opacity: 0.8,
-                        zIndex: 1200,
-                        cursor: 'wait'
-                    },
-                    css: {
-                        border: 0,
-                        color: '#fff',
-                        zIndex: 1201,
-                        padding: 0,
-                        backgroundColor: 'transparent'
-                    }
-                });
-                jQuery.ajax({
-                    url: "{{ url('/get_employee') }}",
-                    method: 'post',
-                    data: {
-                        id: this.id,
-                    },
-                    success: function(result){
-                        $.unblockUI();
-                        if (result.success == false) {
-                            $('#error_msg').html(result.errors);
-                        }else{
-                            $('#registerModal').modal('show');
-                            $('#edit_form').val(result.data.id);
-                            $('.add_new_employee').text('Update Employee');
-                            $('#name').val(result.data.name);
-                            $('#position').val(result.data.position);
-                            $('#email').val(result.data.email);
-                        }
-                    }
-                });
+        //     });
+        //     $('.action-edit').click(function(e){
+        //         e.preventDefault();
+        //         $.ajaxSetup({
+        //             headers: {
+        //               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //             }
+        //         });
+        //         $.blockUI({
+        //             message: '<svg> ... </svg>',
+        //             fadeIn: 800, 
+        //             timeout: 2000, //unblock after 2 seconds
+        //             overlayCSS: {
+        //                 backgroundColor: '#1b2024',
+        //                 opacity: 0.8,
+        //                 zIndex: 1200,
+        //                 cursor: 'wait'
+        //             },
+        //             css: {
+        //                 border: 0,
+        //                 color: '#fff',
+        //                 zIndex: 1201,
+        //                 padding: 0,
+        //                 backgroundColor: 'transparent'
+        //             }
+        //         });
+        //         jQuery.ajax({
+        //             url: "{{ url('/get_employee') }}",
+        //             method: 'post',
+        //             data: {
+        //                 id: this.id,
+        //             },
+        //             success: function(result){
+        //                 $.unblockUI();
+        //                 if (result.success == false) {
+        //                     $('#error_msg').html(result.errors);
+        //                 }else{
+        //                     $('#registerModal').modal('show');
+        //                     $('#edit_form').val(result.data.id);
+        //                     $('.add_new_employee').text('Update Employee');
+        //                     $('#name').val(result.data.name);
+        //                     $('#position').val(result.data.position);
+        //                     $('#email').val(result.data.email);
+        //                 }
+        //             }
+        //         });
 
-            });
-            $('.action-delete').click(function(e){
-                id = this.id;
-                e.preventDefault();
-                $.ajaxSetup({
-                    headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                swal({
-                    title: 'Are you sure?',
-                    text: "You want to this record!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Delete',
-                    padding: '2em'
-                }).then(function(result) {
-                    if (result.value) {
-                        jQuery.ajax({
-                            url: "{{ url('/delete_employee') }}",
-                            method: 'post',
-                            data: {
-                                id: id,
-                            },
-                            success: function(result){
-                                $.unblockUI();
-                                if (result.success == false) {
-                                    $('#error_msg').html(result.errors);
-                                }else{
-                                    location.reload(true);
-                                }
-                            }
-                        });
-                    }
-                })
+        //     });
+        //     $('.action-delete').click(function(e){
+        //         id = this.id;
+        //         e.preventDefault();
+        //         $.ajaxSetup({
+        //             headers: {
+        //               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //             }
+        //         });
+        //         swal({
+        //             title: 'Are you sure?',
+        //             text: "You want to this record!",
+        //             type: 'warning',
+        //             showCancelButton: true,
+        //             confirmButtonText: 'Delete',
+        //             padding: '2em'
+        //         }).then(function(result) {
+        //             if (result.value) {
+        //                 jQuery.ajax({
+        //                     url: "{{ url('/delete_employee') }}",
+        //                     method: 'post',
+        //                     data: {
+        //                         id: id,
+        //                     },
+        //                     success: function(result){
+        //                         $.unblockUI();
+        //                         if (result.success == false) {
+        //                             $('#error_msg').html(result.errors);
+        //                         }else{
+        //                             location.reload(true);
+        //                         }
+        //                     }
+        //                 });
+        //             }
+        //         })
                 
 
-            });
-        });
+        //     });
+        // });
     </script>
 @endsection

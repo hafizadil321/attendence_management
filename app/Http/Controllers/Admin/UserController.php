@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Employee;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -63,6 +64,19 @@ class UserController extends Controller
         $user->code = "00".$user->id;
         $user->save();
         $user->attachRole($request->role);
-        return redirect()->route('users')->with('success','User created successfully.');
+        return redirect()->route('/admin/users')->with('success','User created successfully.');
+    }
+    public function edit_user_view($id)
+    {
+        $title = 'Edit User';
+        $employee = User::where('id', $id)->first();
+        $emp_role = $employee->roles[0]->name;
+        $roles = Role::all()->except(1);
+        return view('admin.pages.users.edit',compact('title','roles','employee','emp_role'));
+    }
+    public function update_user(Request $request)
+    {
+        $data = $request->all();
+        echo "<pre>"; print_r($data); exit('poikk');
     }
 }
