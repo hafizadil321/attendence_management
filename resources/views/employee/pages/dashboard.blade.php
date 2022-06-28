@@ -1,4 +1,4 @@
-@extends('admin.layout.main_layout')
+@extends('employee.layout.main_layout')
 @section('content')
 <!--page-wrapper-->
 <div class="layout-px-spacing">

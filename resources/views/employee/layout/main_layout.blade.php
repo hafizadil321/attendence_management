@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    <meta name="csrf-token" content="{{ csrf_token() }}">
-    @include('admin/layout.includes.head')
+    @include('employee/layout.includes.head')
     @yield('css')
 </head>
 <body>
@@ -13,7 +13,7 @@
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
-    @include('admin/layout.includes.header')
+    @include('employee/layout.includes.header')
     <!--  END NAVBAR  -->
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -23,19 +23,19 @@
         <div class="search-overlay"></div>
 
         <!--  BEGIN SIDEBAR  -->
-        @include('admin/layout.includes.sidebar')
+        @include('employee/layout.includes.sidebar')
         <!--  END SIDEBAR  -->
         
         <!--  BEGIN CONTENT PART  -->
         <div id="content" class="main-content">
             @yield('content')
 
-            @include('admin/layout.includes.footer')
+            @include('employee/layout.includes.footer')
         </div>
         <!--  END CONTENT PART  -->
 
     </div>
-    @include('admin/layout.includes.footer-scripts')
+    @include('employee/layout.includes.footer-scripts')
    @yield('js')
 
 </body>

@@ -12,5 +12,15 @@ class EmployeeController extends Controller
         $title = 'Employee Dashboard';
         return view('employee.pages.dashboard',compact('title'));
     }
+    public function mark_attendance_view()
+    {
+        $title = 'Mark Attendance';
+        return view('employee.pages.mark_attendance',compact('title'));
+    }
+    public function mark_attendance()
+    {
+        $title = 'Mark Attendance';
+        return view('employee.pages.mark_attendance',compact('title'));
+    }
     
 }

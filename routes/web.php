@@ -50,5 +50,8 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
 });
 
 Route::group(['middleware' => ['auth', 'role:employee|superadministrator']], function(){
-    Route::get('/employee/dashboard', [App\Http\Controllers\Employee\EmployeeController::class, 'index'])->name('/user/dashboard');
+    Route::get('/employee/dashboard', [App\Http\Controllers\Employee\EmployeeController::class, 'index'])->name('/employee/dashboard');
+    Route::get('/employee/mark_attendance', [App\Http\Controllers\Employee\EmployeeController::class, 'mark_attendance_view'])->name('/employee/mark_attendance');
+    Route::post('/employee/mark_attendance', [App\Http\Controllers\Employee\EmployeeController::class, 'mark_attendance'])->name('/employee/mark_attendance');
+    Route::get('/employee/attendance', [App\Http\Controllers\Employee\EmployeeController::class, 'attendance'])->name('/employee/attendance');
 });
