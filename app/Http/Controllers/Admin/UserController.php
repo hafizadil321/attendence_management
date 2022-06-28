@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Attendance;
 use App\Models\Role;
 use App\Models\Employee;
 use Carbon\Carbon;
@@ -112,5 +113,35 @@ class UserController extends Controller
         $employee->joining_date = $request->joining_date;
         $employee->save();
         return redirect()->route('/admin/users')->with('success','User created successfully.');
+    }
+    public function user_attendance($id)
+    {
+        $title = 'User Attendance';
+        $attendance = Attendance::where('user_id', $id)->whereMonth('created_at', Carbon::now()->month)->get();
+        return view('admin.pages.attendance',compact('title','attendance'));
+    }
+    public function active_users()
+    {
+        $title = 'Active Users';
+        $users = User::where('status', 1)->get();
+        return view('admin.pages.users.acitve_users',compact('title','users'));
+    }
+    public function change_user_status(Request $request)
+    {
+        $user = User::where('id', $request->id)->first();
+        if ($user->status == 1) {
+            $status = 0;
+        }else{
+            $status = 1;
+        }
+
+        $user->status = $status;
+        $user->save();
+
+        $data = array(
+            'success' => true,
+            'data' => $user,
+        );
+        return $data;
     }
 }

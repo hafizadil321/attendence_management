@@ -55,8 +55,8 @@
                                     </svg> {{ Carbon\Carbon::parse($user->joining_date)->format('d M Y') }}
                                 </span>
                             </td>
-                            <td><label class="switch s-icons s-outline  s-outline-success mr-2">
-                                    <input type="checkbox" class="user_status" id="{{ $user->id }}" value="{{ $user->id }}" @if($user->status == 1) checked @endif>
+                            <td><label class="switch s-icons s-outline  s-outline-success  mb-4 mr-2">
+                                    <input type="checkbox" checked="">
                                     <span class="slider round"></span>
                                 </label>
                             </td>
@@ -274,45 +274,5 @@
 
         //     });
         // });
-        $('.user_status').click(function(e){
-            id = this.id;
-            $.ajaxSetup({
-                headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.blockUI({
-                message: '<svg> ... </svg>',
-                fadeIn: 800, 
-                timeout: 2000, //unblock after 2 seconds
-                overlayCSS: {
-                    backgroundColor: '#1b2024',
-                    opacity: 0.8,
-                    zIndex: 1200,
-                    cursor: 'wait'
-                },
-                css: {
-                    border: 0,
-                    color: '#fff',
-                    zIndex: 1201,
-                    padding: 0,
-                    backgroundColor: 'transparent'
-                }
-            });
-            jQuery.ajax({
-                url: "{{ url('/admin/changeUserStatus') }}",
-                method: 'post',
-                data: {
-                    id: id,
-                },
-                success: function(result){
-                    $.unblockUI();
-                    if (result.success == false) {
-                        $('#error_msg').html(result.errors);
-                    }
-                }
-            });
-
-        });
     </script>
 @endsection

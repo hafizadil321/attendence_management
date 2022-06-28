@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Employee;
+use App\Models\User;
 
 class Attendance extends Model
 {
@@ -16,6 +17,6 @@ class Attendance extends Model
 
     public function employee()
     {
-        return $this->hasOne(Employee::class, 'id', 'emp_id');
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 }
