@@ -93,6 +93,10 @@ class UserController extends Controller
             // 'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $employee = User::find($request->user_id);
+        if (!$employee->hasRole($request->role)) {
+            $employee->detachRole($request->previous_role);
+            $employee->attachRole($request->role);
+        }
         if ($request->has('file')) {
             $destinationPath = 'images/';
             File::delete($destinationPath.'/'.$employee->image);
@@ -112,6 +116,7 @@ class UserController extends Controller
         }
         $employee->joining_date = $request->joining_date;
         $employee->save();
+
         return redirect()->route('/admin/users')->with('success','User created successfully.');
     }
     public function user_attendance($id)

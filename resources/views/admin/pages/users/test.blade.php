@@ -274,45 +274,47 @@
 
         //     });
         // });
-        $('.user_status').click(function(e){
-            id = this.id;
-            $.ajaxSetup({
-                headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.blockUI({
-                message: '<svg> ... </svg>',
-                fadeIn: 800, 
-                timeout: 2000, //unblock after 2 seconds
-                overlayCSS: {
-                    backgroundColor: '#1b2024',
-                    opacity: 0.8,
-                    zIndex: 1200,
-                    cursor: 'wait'
-                },
-                css: {
-                    border: 0,
-                    color: '#fff',
-                    zIndex: 1201,
-                    padding: 0,
-                    backgroundColor: 'transparent'
-                }
-            });
-            jQuery.ajax({
-                url: "{{ url('/admin/changeUserStatus') }}",
-                method: 'post',
-                data: {
-                    id: id,
-                },
-                success: function(result){
-                    $.unblockUI();
-                    if (result.success == false) {
-                        $('#error_msg').html(result.errors);
+        // $(document).ready(function(){
+            $(document).on('click', '.user_status', function(e){
+                id = this.id;
+                $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
-                }
-            });
+                });
+                $.blockUI({
+                    message: '<svg> ... </svg>',
+                    fadeIn: 800, 
+                    timeout: 2000, //unblock after 2 seconds
+                    overlayCSS: {
+                        backgroundColor: '#1b2024',
+                        opacity: 0.8,
+                        zIndex: 1200,
+                        cursor: 'wait'
+                    },
+                    css: {
+                        border: 0,
+                        color: '#fff',
+                        zIndex: 1201,
+                        padding: 0,
+                        backgroundColor: 'transparent'
+                    }
+                });
+                jQuery.ajax({
+                    url: "{{ url('/admin/changeUserStatus') }}",
+                    method: 'post',
+                    data: {
+                        id: id,
+                    },
+                    success: function(result){
+                        $.unblockUI();
+                        if (result.success == false) {
+                            $('#error_msg').html(result.errors);
+                        }
+                    }
+                });
 
-        });
+            });
+        // });
     </script>
 @endsection

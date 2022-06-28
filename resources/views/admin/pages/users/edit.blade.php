@@ -68,6 +68,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
+                                    <input type="hidden" name="previous_role" value="{{ $emp_role }}">
                                     <label for="inputState">Select Role</label>
                                     <select id="inputState" name="role" class="form-control">
                                         <option value="">Choose...</option>
@@ -140,7 +141,7 @@
                                     @enderror
                                 </div>
                             </div>
-                          <button type="submit" class="btn btn-primary mt-3">Create User</button>
+                          <button type="submit" class="btn btn-primary mt-3">Update User</button>
                         </form>
                     </div>
                 </div>
