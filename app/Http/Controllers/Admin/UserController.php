@@ -128,7 +128,7 @@ class UserController extends Controller
     public function active_users()
     {
         $title = 'Active Users';
-        $users = User::where('status', 1)->get();
+        $users = User::where('status', 1)->get()->except(1);
         return view('admin.pages.users.acitve_users',compact('title','users'));
     }
     public function change_user_status(Request $request)
