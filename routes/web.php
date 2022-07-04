@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\UserController;
 
 
 date_default_timezone_set('America/New_York');
+// Route::get('/login', [HomeController::class, 'adminLoginForm']);
 Route::get('/', [HomeController::class, 'adminLoginForm']);
 
 Auth::routes();
