@@ -16,4 +16,11 @@ class AdminController extends Controller
         $title = 'Dashboard';
         return view('admin.pages.dashboard',compact('title'));
     }
+
+
+    public function docusign()
+    {
+        $title = 'Docusign';
+        return view('admin.pages.docusign',compact('title'));
+    }
 }
