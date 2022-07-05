@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
 use App\Models\Role;
+use App\Models\Attendance;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -56,5 +58,10 @@ class User extends Authenticatable
     public function role()
     {
         return $this->hasOne(Role::class);
+    }
+
+    public function attendance()
+    {
+        return $this->hasMany(Attendance::class, 'user_id', 'id')->whereDate('created_at', Carbon::today());
     }
 }

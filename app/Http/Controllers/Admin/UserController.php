@@ -125,6 +125,13 @@ class UserController extends Controller
         $attendance = Attendance::where('user_id', $id)->whereMonth('created_at', Carbon::now()->month)->get();
         return view('admin.pages.attendance',compact('title','attendance'));
     }
+    public function user_today_attendance()
+    {
+        $title = 'Today Attendance';
+        $today_attendance = User::with('attendance')->get()->except(1);
+        // dd($today_attendance);
+        return view('admin.pages.today_attendance',compact('title','today_attendance'));
+    }
     public function active_users()
     {
         $title = 'Active Users';

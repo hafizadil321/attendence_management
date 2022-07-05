@@ -30,6 +30,9 @@
                     <li class="@if($title == "Active Users") active @endif">
                         <a href="{{ url('admin/active_users') }}"> Active Users </a>
                     </li>
+                    <li class="@if($title == "Today Attendance") active @endif">
+                        <a href="{{ url('admin/today_attendance') }}"> Today Attendance </a>
+                    </li>
                 </ul>
             </li>
             <li class="menu">

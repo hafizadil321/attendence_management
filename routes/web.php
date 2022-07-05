@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
 
     // Employee Attendance
     Route::get('/admin/attendance/{id}', [UserController::class, 'user_attendance']);
+    Route::get('/admin/today_attendance', [UserController::class, 'user_today_attendance']);
 
     Route::post('/create_user', [UserController::class, 'create_user'])->name('create_user');
     Route::post('/get_employee', [EmployeeController::class, 'get_employee'])->name('get_employee');
