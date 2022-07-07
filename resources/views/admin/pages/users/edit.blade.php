@@ -40,24 +40,15 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <!-- <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Password</label>
-                                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
-                                    @error('password')
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Employee ID</label>
+                                    <input type="text" class="form-control" name="code" value="{{ $employee->code }}" id="inputPassword4" placeholder="User ID">
+                                    @error('user_id')
                                         <div class="invalid-feedback" style="display: block;">
                                                    <strong>{{ $message }}</strong>
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Confirm Password</label>
-                                    <input type="password" class="form-control" name="c_password" id="inputPassword4" placeholder="Password">
-                                    @error('c_password')
-                                        <div class="invalid-feedback" style="display: block;">
-                                                   <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div> -->
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword4">Designation</label>
                                     <input type="text" class="form-control" name="designation" value="{{ $employee->designation }}" id="designation" placeholder="Designation">

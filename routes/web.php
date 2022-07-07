@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('/admin/dashboard');
     
     Route::get('/admin/users', [UserController::class, 'index'])->name('/admin/users');
+    Route::get('/admin/profile', [UserController::class, 'profile'])->name('/admin/profile');
     Route::get('/admin/addUser', [UserController::class, 'add_user_view']);
     Route::get('/admin/editUser/{id}', [UserController::class, 'edit_user_view']);
     Route::post('/admin/updateUser/{id}', [UserController::class, 'update_user']);
@@ -57,6 +58,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function(){
 
 Route::group(['middleware' => ['auth', 'role:employee|superadministrator']], function(){
     Route::get('/employee/dashboard', [App\Http\Controllers\Employee\EmployeeController::class, 'index'])->name('/employee/dashboard');
+    Route::get('/employee/profile', [App\Http\Controllers\Employee\EmployeeController::class, 'profile'])->name('/employee/profile');
     Route::get('/employee/mark_attendance', [App\Http\Controllers\Employee\EmployeeController::class, 'mark_attendance_view'])->name('/employee/mark_attendance');
     Route::post('/employee/mark_attendance', [App\Http\Controllers\Employee\EmployeeController::class, 'mark_attendance'])->name('/employee/mark_attendance');
     Route::get('/employee/attendance', [App\Http\Controllers\Employee\EmployeeController::class, 'attendance'])->name('/employee/attendance');

@@ -58,6 +58,15 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Employee ID</label>
+                                    <input type="text" class="form-control" name="user_id" value="{{ old('user_id') }}" id="inputPassword4" placeholder="Employee ID">
+                                    @error('user_id')
+                                        <div class="invalid-feedback" style="display: block;">
+                                                   <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-6">
                                     <label for="inputPassword4">Designation</label>
                                     <input type="text" class="form-control" name="designation" value="{{ old('designation') }}" id="designation" placeholder="Designation">
                                     @error('designation')

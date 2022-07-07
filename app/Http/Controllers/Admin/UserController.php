@@ -21,6 +21,12 @@ class UserController extends Controller
         return view('admin.pages.users.test',compact('title','users'));
         
     }
+    public function profile()
+    {
+        $title = 'User Profile';
+        return view('admin.pages.users.profile',compact('title'));
+        
+    } 
     public function add_user_view()
     {
         $title = 'Users';
@@ -37,6 +43,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
             'c_password' => 'required|same:password',
+            'user_id' => 'required',
             'designation' => 'required|min:2',
             'role' => 'required',
             'phone' => 'required|numeric',
@@ -55,6 +62,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'code' => $request->user_id,
             'designation' => $request->designation,
             'image' => $imageName,
             'phone' => $request->phone,
@@ -63,7 +71,6 @@ class UserController extends Controller
             'bank_account' => $request->bank_account,
             'joining_date' => $request->joining_date,
         ]);
-        $user->code = "00".$user->id;
         $user->save();
         $user->attachRole($request->role);
         return redirect()->route('/admin/users')->with('success','User created successfully.');
@@ -83,6 +90,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'code' => 'required',
             'designation' => 'required|min:2',
             'role' => 'required',
             'phone' => 'required|numeric',
@@ -105,6 +113,7 @@ class UserController extends Controller
         }
         $employee->name = $request->name;
         $employee->email = $request->email;
+        $employee->code = $request->code;
         $employee->designation = $request->designation;
         $employee->phone = $request->phone;
         $employee->address = $request->address;
